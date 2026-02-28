@@ -1,0 +1,300 @@
+@import "tailwindcss";
+
+/* ── Design Tokens ────────────────────────────────────────── */
+@theme {
+  --color-surface-50: #FAFAFA;
+  --color-surface-100: #F5F5F5;
+  --color-surface-200: #E5E5E5;
+  --color-accent: #2563EB;
+  --color-accent-light: #DBEAFE;
+  --color-accent-dark: #1D4ED8;
+  --color-success: #16A34A;
+  --color-success-light: #DCFCE7;
+  --color-warn: #D97706;
+  --color-warn-light: #FEF3C7;
+  --color-error: #DC2626;
+  --color-error-light: #FEE2E2;
+  --font-khmer: 'Battambang', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #FAFAFA;
+  color: #18181B;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Typography ──────────────────────────────────────────── */
+.font-khmer {
+  font-family: var(--font-khmer);
+}
+
+.khmer-input {
+  font-family: var(--font-khmer);
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #18181B;
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.card {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: #D4D4D4;
+}
+
+/* ── Primary Button ──────────────────────────────────────── */
+.btn-primary {
+  background: #18181B;
+  color: #FFFFFF;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background: #27272A;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Secondary Button ────────────────────────────────────── */
+.btn-secondary {
+  background: transparent;
+  color: #71717A;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #E5E5E5;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-secondary:hover {
+  background: #F5F5F5;
+  border-color: #D4D4D4;
+  color: #18181B;
+}
+
+/* ── Tab System ──────────────────────────────────────────── */
+.tab-group {
+  display: inline-flex;
+  gap: 2px;
+  background: #F5F5F5;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.tab-btn {
+  padding: 8px 20px;
+  border: none;
+  background: transparent;
+  color: #71717A;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  font-size: 1rem;
+}
+
+.tab-btn.active {
+  background: #FFFFFF;
+  color: #18181B;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+}
+
+.tab-btn:hover:not(.active) {
+  color: #18181B;
+}
+
+/* ── Badges ──────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge-dictionary {
+  background: #DCFCE7;
+  color: #15803D;
+}
+
+.badge-fuzzy {
+  background: #DBEAFE;
+  color: #1D4ED8;
+}
+
+.badge-ai {
+  background: #EDE9FE;
+  color: #6D28D9;
+}
+
+.badge-not-found {
+  background: #FEE2E2;
+  color: #DC2626;
+}
+
+/* ── Upload Zone ─────────────────────────────────────────── */
+.upload-zone {
+  border: 2px dashed #D4D4D4;
+  border-radius: 16px;
+  padding: 48px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #FAFAFA;
+}
+
+.upload-zone:hover,
+.upload-zone.dragging {
+  border-color: #A1A1AA;
+  background: #F5F5F5;
+}
+
+/* ── Spinner ─────────────────────────────────────────────── */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 2.5px solid #E5E5E5;
+  border-top-color: #18181B;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ── Word Highlight ──────────────────────────────────────── */
+.word-correct {
+  color: #16A34A;
+}
+
+.word-corrected {
+  color: #D97706;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(217, 119, 6, 0.35);
+}
+
+.word-not-found {
+  color: #DC2626;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(220, 38, 38, 0.35);
+}
+
+/* ── Animation ───────────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.35s ease-out forwards;
+}
+
+/* ── Textarea ────────────────────────────────────────────── */
+textarea {
+  background: #FAFAFA !important;
+  border: 1px solid #E5E5E5 !important;
+  color: #18181B !important;
+  border-radius: 12px !important;
+}
+
+textarea::placeholder {
+  color: #A1A1AA !important;
+}
+
+textarea:focus {
+  border-color: #18181B !important;
+  box-shadow: 0 0 0 1px #18181B !important;
+  outline: none !important;
+  background: #FFFFFF !important;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4D4D4;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A1A1AA;
+}
+
+/* ── Divider ─────────────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: #E5E5E5;
+  margin: 0;
+}

@@ -1,0 +1,25 @@
+version: 1.0
+runtime: nodejs18
+
+build:
+  commands:
+    pre-build:
+      - npm install --prefix backend
+      - npm install --prefix frontend
+    build:
+      - npm run build --prefix frontend
+  env:
+    - name: NODE_ENV
+      value: "production"
+
+run:
+  runtime-version: 18.x
+  command: node backend/server.js
+  network:
+    port: 3001
+    env: PORT
+  env:
+    - name: NODE_ENV
+      value: "production"
+    - name: PORT
+      value: "3001"

@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment variables (secrets)
+.env
+**/.env
+
+# Build artifacts
+frontend/dist/
+
+# Logs
+*.log
+**/server.log
+
+# OS files
+.DS_Store
+**/.DS_Store
+
+# Debug files
+backend/debug-*.js
+backend/convert-*.js
+backend/test_verification.png
+backend/models_list.json
