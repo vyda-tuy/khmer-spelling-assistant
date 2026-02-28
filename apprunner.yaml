@@ -8,12 +8,8 @@ build:
       - npm install --prefix frontend
     build:
       - npm run build --prefix frontend
-  env:
-    - name: NODE_ENV
-      value: "production"
 
 run:
-  runtime-version: 18.x
   command: node backend/server.js
   network:
     port: 3001
@@ -23,5 +19,3 @@ run:
       value: "production"
     - name: PORT
       value: "3001"
-  # Note: GEMINI_API_KEY is injected as a runtime secret via the App Runner console
-  # or CLI after service creation — NOT stored in this file
